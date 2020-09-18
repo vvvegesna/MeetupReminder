@@ -8,7 +8,39 @@
 
 import SwiftUI
 
-struct Member {
-    var name: String
-    let icon: Image
+struct Member: Codable {
+    
+    let name: String
+    let icon: CodableImage
+    
+    init(name: String, image: UIImage) {
+        self.name = name
+        let photoData = image.jpegData(compressionQuality: 0.8)!
+        self.icon = CodableImage(photoData)
+    }
+    
+    var image: Image {
+        guard let uiImage = UIImage(data: icon.photoData) else {
+            return Image(systemName: "person")
+        }
+        return Image(uiImage: uiImage)
+    }
+}
+
+class CodableImage: Codable {
+    
+    enum CodingKeys: CodingKey {
+        case photoData
+    }
+    
+    let photoData: Data
+    
+    init(_ photoData: Data) {
+        self.photoData = photoData
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        photoData = try container.decode(Data.self, forKey: .photoData)
+    }
 }
