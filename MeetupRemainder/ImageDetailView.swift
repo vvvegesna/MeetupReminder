@@ -21,7 +21,7 @@ struct ImageDetailView: View {
 }
 
 struct ImageDetailView_Previews: PreviewProvider {
-    static var member = Member(name: "Vegas", image: UIImage(systemName: "persone")!)
+    static var member = Member(name: "Vegas", image: UIImage(systemName: "person")!)
     static var previews: some View {
         ImageDetailView(selectedMember: member)
     }

@@ -15,10 +15,16 @@ struct PhotoNameView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("Enter name of the member", text: $enteredName)
+            VStack {
+                TextField("Enter name of the member", text: $enteredName)
+                    .padding()
+                    .clipShape(Capsule())
+                    .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+                    .padding()
+                NavigationLink(destination: LocationView()) {
+                    Text("Add Location")
                 }
+                Spacer()
             }
             .navigationBarTitle("Create Member", displayMode: .inline)
             .navigationBarItems(trailing: Button("Done") {

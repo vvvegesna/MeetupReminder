@@ -16,6 +16,9 @@
 		835F9B6A250D0192005A73AC /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F9B69250D0192005A73AC /* Member.swift */; };
 		835F9B6C250D0B16005A73AC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F9B6B250D0B16005A73AC /* ImagePicker.swift */; };
 		835F9B6E250DC94D005A73AC /* PhotoNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F9B6D250DC94D005A73AC /* PhotoNameView.swift */; };
+		8372107E25159A2B00052D0B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372107D25159A2B00052D0B /* MapView.swift */; };
+		837210802515AEC300052D0B /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372107F2515AEC300052D0B /* LocationFetcher.swift */; };
+		83721082251700A400052D0B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83721081251700A400052D0B /* LocationView.swift */; };
 		83ACDA6C25140F09006F180B /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ACDA6B25140F09006F180B /* ImageDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		835F9B69250D0192005A73AC /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		835F9B6B250D0B16005A73AC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		835F9B6D250DC94D005A73AC /* PhotoNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNameView.swift; sourceTree = "<group>"; };
+		8372107D25159A2B00052D0B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8372107F2515AEC300052D0B /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		83721081251700A400052D0B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		83ACDA6B25140F09006F180B /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +77,9 @@
 				835F9B59250CFB67005A73AC /* ContentView.swift */,
 				83ACDA6B25140F09006F180B /* ImageDetailView.swift */,
 				835F9B6D250DC94D005A73AC /* PhotoNameView.swift */,
+				8372107D25159A2B00052D0B /* MapView.swift */,
+				8372107F2515AEC300052D0B /* LocationFetcher.swift */,
+				83721081251700A400052D0B /* LocationView.swift */,
 				835F9B5B250CFB68005A73AC /* Assets.xcassets */,
 				835F9B60250CFB68005A73AC /* LaunchScreen.storyboard */,
 				835F9B63250CFB68005A73AC /* Info.plist */,
@@ -159,12 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				835F9B56250CFB67005A73AC /* AppDelegate.swift in Sources */,
+				8372107E25159A2B00052D0B /* MapView.swift in Sources */,
 				83ACDA6C25140F09006F180B /* ImageDetailView.swift in Sources */,
 				835F9B58250CFB67005A73AC /* SceneDelegate.swift in Sources */,
 				835F9B6E250DC94D005A73AC /* PhotoNameView.swift in Sources */,
 				835F9B6C250D0B16005A73AC /* ImagePicker.swift in Sources */,
 				835F9B5A250CFB67005A73AC /* ContentView.swift in Sources */,
+				83721082251700A400052D0B /* LocationView.swift in Sources */,
 				835F9B6A250D0192005A73AC /* Member.swift in Sources */,
+				837210802515AEC300052D0B /* LocationFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
