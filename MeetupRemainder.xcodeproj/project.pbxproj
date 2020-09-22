@@ -21,6 +21,7 @@
 		83721082251700A400052D0B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83721081251700A400052D0B /* LocationView.swift */; };
 		83ACDA6C25140F09006F180B /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ACDA6B25140F09006F180B /* ImageDetailView.swift */; };
 		83C5AB212518E88B00032E9D /* CodableMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C5AB202518E88B00032E9D /* CodableMKPointAnnotation.swift */; };
+		83D64F3A251A329700D1585B /* DetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D64F39251A329700D1585B /* DetailMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		83721081251700A400052D0B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		83ACDA6B25140F09006F180B /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		83C5AB202518E88B00032E9D /* CodableMKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableMKPointAnnotation.swift; sourceTree = "<group>"; };
+		83D64F39251A329700D1585B /* DetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		835F9B54250CFB67005A73AC /* MeetupRemainder */ = {
 			isa = PBXGroup;
 			children = (
+				83D64F39251A329700D1585B /* DetailMapView.swift */,
 				83C5AB202518E88B00032E9D /* CodableMKPointAnnotation.swift */,
 				835F9B69250D0192005A73AC /* Member.swift */,
 				835F9B6B250D0B16005A73AC /* ImagePicker.swift */,
@@ -180,6 +183,7 @@
 				835F9B5A250CFB67005A73AC /* ContentView.swift in Sources */,
 				83721082251700A400052D0B /* LocationView.swift in Sources */,
 				835F9B6A250D0192005A73AC /* Member.swift in Sources */,
+				83D64F3A251A329700D1585B /* DetailMapView.swift in Sources */,
 				837210802515AEC300052D0B /* LocationFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -64,7 +64,12 @@ struct ContentView: View {
                     ImagePicker(inputImage: imageBinding)
                 } else if currentSheet == .name {
                     PhotoNameView { name, location in
-                        self.buildMember(name: name)
+                        var codableInstance: CodableMKPointAnnotation?
+                        if let location = location {
+                            codableInstance = CodableMKPointAnnotation()
+                            codableInstance?.coordinate = location
+                        }
+                        self.buildMember(name: name, instance: codableInstance)
                     }
                 }
             }
@@ -78,9 +83,9 @@ struct ContentView: View {
         }
     }
     
-    func buildMember(name: String) {
+    func buildMember(name: String, instance: CodableMKPointAnnotation?) {
         guard let selectedImage = self.inputImage else { return }
-        let member = Member(name: name, image: selectedImage)
+        let member = Member(name: name, image: selectedImage, instance: instance)
         membersList.append(member)
         activeSheet = .none
         saveData()

@@ -7,17 +7,19 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct Member: Codable {
     
     let name: String
     let icon: CodableImage
-    var location: CodableMKPointAnnotation?
+    var instance: CodableMKPointAnnotation?
     
-    init(name: String, image: UIImage) {
+    init(name: String, image: UIImage, instance: CodableMKPointAnnotation?) {
         self.name = name
         let photoData = image.jpegData(compressionQuality: 0.8)!
         self.icon = CodableImage(photoData)
+        self.instance = instance
     }
     
     var image: Image {
@@ -26,6 +28,11 @@ struct Member: Codable {
         }
         return Image(uiImage: uiImage)
     }
+    
+    var location: CLLocationCoordinate2D? {
+        instance?.coordinate
+    }
+    
 }
 
 class CodableImage: Codable {

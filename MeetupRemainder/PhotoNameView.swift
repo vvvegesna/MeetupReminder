@@ -28,9 +28,10 @@ struct PhotoNameView: View {
                     Text("Add Location")
                 }
                 .isDetailLink(false)
-                Text("Location saved")
-                    .opacity(isNavLinkActive ? 1 : 0)
-                    .foregroundColor(.red)
+                if entredLocation != nil {
+                    Text("Location Saved")
+                        .foregroundColor(.green)
+                }
                 Spacer()
             }
             .navigationBarTitle("Create Member", displayMode: .inline)

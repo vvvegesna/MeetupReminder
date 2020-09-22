@@ -9,19 +9,44 @@
 import SwiftUI
 
 struct ImageDetailView: View {
+    
+    enum CurrentView: String, CaseIterable, Identifiable {
+        var id: String {
+            rawValue
+        }
+        case image, map
+    }
+    
+    @State private var currentView: CurrentView = .image
     var selectedMember: Member
+    
     var body: some View {
-        GeometryReader { geo in
-            selectedMember.image
-                .resizable()
-                .scaledToFit()
-                .frame(width: geo.size.width)
+        VStack {
+            Picker(selection: $currentView, label: Text("Select View")) {
+                ForEach(CurrentView.allCases) { view in
+                    Text(view.rawValue).tag(view)
+                }
+            }.pickerStyle(SegmentedPickerStyle())
+            .padding()
+            if currentView == .image {
+                selectedMember.image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+            } else if currentView == .map, let location = selectedMember.location {
+                DetailMapView(savedLocation: location)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+            } else {
+                Text("Meetup location for \(selectedMember.name) is not saved")
+            }
+            Spacer()
         }
     }
 }
 
 struct ImageDetailView_Previews: PreviewProvider {
-    static var member = Member(name: "Vegas", image: UIImage(systemName: "person")!)
+    static var member = Member(name: "Vegas", image: UIImage(systemName: "person")!, instance: nil)
     static var previews: some View {
         ImageDetailView(selectedMember: member)
     }
