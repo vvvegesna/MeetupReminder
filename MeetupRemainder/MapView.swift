@@ -46,8 +46,9 @@ struct MapView: UIViewRepresentable {
                 uiView.removeAnnotation(annotation)
             }
             uiView.showsUserLocation = true
-            let region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 800, longitudinalMeters: 800)
-            uiView.setRegion(region, animated: true)
+//            let region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 800, longitudinalMeters: 800)
+//            uiView.setRegion(region, animated: true)
+            uiView.setCenter(currentLocation, animated: true)
         } else if let annotation = self.withAnnotation {
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotation(annotation)
