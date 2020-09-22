@@ -22,8 +22,6 @@ struct DetailMapView: UIViewRepresentable {
         let annotation = MKPointAnnotation()
         annotation.coordinate = savedLocation
         uiView.addAnnotation(annotation)
-//        let region = MKCoordinateRegion(center: savedLocation, span: MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8))
-//        uiView.setRegion(region, animated: true)
         uiView.setCenter(savedLocation, animated: true)
     }
 }
