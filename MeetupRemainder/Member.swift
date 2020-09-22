@@ -12,6 +12,7 @@ struct Member: Codable {
     
     let name: String
     let icon: CodableImage
+    var location: CodableMKPointAnnotation?
     
     init(name: String, image: UIImage) {
         self.name = name

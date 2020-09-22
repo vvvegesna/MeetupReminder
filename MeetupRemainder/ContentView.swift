@@ -63,7 +63,7 @@ struct ContentView: View {
                 if currentSheet == .image {
                     ImagePicker(inputImage: imageBinding)
                 } else if currentSheet == .name {
-                    PhotoNameView { name in
+                    PhotoNameView { name, location in
                         self.buildMember(name: name)
                     }
                 }

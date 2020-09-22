@@ -13,6 +13,7 @@ struct MapView: UIViewRepresentable {
     
     @Binding var centerCoordinate: CLLocationCoordinate2D
     var currentLocation: CLLocationCoordinate2D?
+    var withAnnotation: MKPointAnnotation?
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
@@ -41,9 +42,15 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         if let currentLocation = self.currentLocation {
+            if let annotation = self.withAnnotation {
+                uiView.removeAnnotation(annotation)
+            }
             uiView.showsUserLocation = true
             let region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 800, longitudinalMeters: 800)
             uiView.setRegion(region, animated: true)
+        } else if let annotation = self.withAnnotation {
+            uiView.removeAnnotations(uiView.annotations)
+            uiView.addAnnotation(annotation)
         }
     }
 }

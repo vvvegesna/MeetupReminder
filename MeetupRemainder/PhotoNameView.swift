@@ -7,11 +7,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PhotoNameView: View {
     
     @State var enteredName: String = ""
-    var nameEntered: (String) -> Void
+    @State var entredLocation: CLLocationCoordinate2D?
+    var nameEntered: (String, CLLocationCoordinate2D?) -> Void
+    @State var isNavLinkActive = false
     
     var body: some View {
         NavigationView {
@@ -21,15 +24,19 @@ struct PhotoNameView: View {
                     .clipShape(Capsule())
                     .overlay(Capsule().stroke(Color.black, lineWidth: 1))
                     .padding()
-                NavigationLink(destination: LocationView()) {
+                NavigationLink(destination: LocationView(isActive: $isNavLinkActive, enteredLocation: $entredLocation), isActive: $isNavLinkActive) {
                     Text("Add Location")
                 }
+                .isDetailLink(false)
+                Text("Location saved")
+                    .opacity(isNavLinkActive ? 1 : 0)
+                    .foregroundColor(.red)
                 Spacer()
             }
             .navigationBarTitle("Create Member", displayMode: .inline)
             .navigationBarItems(trailing: Button("Done") {
                 if !self.enteredName.isEmpty {
-                    self.nameEntered(self.enteredName)
+                    self.nameEntered(self.enteredName, self.entredLocation)
                 } else {
                     //present validation alert
                 }
@@ -40,7 +47,7 @@ struct PhotoNameView: View {
 
 struct PhotoNameView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoNameView { name in
+        PhotoNameView { name, location in
             print(name)
         }
     }

@@ -16,10 +16,14 @@ struct LocationView: View {
     @State var centerCoordinate = CLLocationCoordinate2D()
     @State var currentLocation: CLLocationCoordinate2D?
     @State var hideAddButton = false
+    @State var annotation: MKPointAnnotation?
+    
+    @Binding var isActive: Bool
+    @Binding var enteredLocation: CLLocationCoordinate2D?
     
     var body: some View {
         ZStack {
-            MapView(centerCoordinate: $centerCoordinate, currentLocation: currentLocation)
+            MapView(centerCoordinate: $centerCoordinate, currentLocation: currentLocation, withAnnotation: annotation)
                 .edgesIgnoringSafeArea([.leading, .trailing, .bottom])
                 .onAppear(perform: {
                     locationFetcher.start()
@@ -32,11 +36,26 @@ struct LocationView: View {
             }
             UserLocationView(self)
             if !hideAddButton {
-                AddButton()
+                AddButton(self)
             }
         }
+        .navigationBarItems(trailing: Button("Save") {
+            if let location = currentLocation {
+                enteredLocation = location
+                isActive = false
+            } else if annotation != nil {
+                enteredLocation = centerCoordinate
+                isActive = false
+            }
+        })
     }
     struct AddButton: View {
+        
+        var parent: LocationView
+        
+        init(_ parent: LocationView) {
+            self.parent = parent
+        }
         
         var body: some View {
             VStack {
@@ -44,7 +63,9 @@ struct LocationView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        // add pin
+                        let location = MKPointAnnotation()
+                        location.coordinate = parent.centerCoordinate
+                        parent.annotation = location
                     }) {
                         Image(systemName: "plus")
                             .padding()
@@ -61,7 +82,6 @@ struct LocationView: View {
 
     struct UserLocationView: View {
         
-        //@Binding var currentLocation: CLLocationCoordinate2D?
         var parent: LocationView
         
         init(_ parent: LocationView) {
@@ -100,6 +120,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView()
+        LocationView(isActive: .constant(false), enteredLocation: .constant(CLLocationCoordinate2D(latitude: 51.9, longitude: -110.5)))
     }
 }
